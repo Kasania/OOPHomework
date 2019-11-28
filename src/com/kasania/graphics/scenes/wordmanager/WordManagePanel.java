@@ -2,13 +2,11 @@ package com.kasania.graphics.scenes.wordmanager;
 
 import com.kasania.core.FileManager;
 import com.kasania.core.game.settings.GameSettings;
-import com.kasania.graphics.MainFrame;
 import com.kasania.graphics.scenes.ScenePanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.function.BiConsumer;
 
 public class WordManagePanel extends ScenePanel {
 

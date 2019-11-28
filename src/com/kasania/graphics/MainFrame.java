@@ -3,9 +3,9 @@ package com.kasania.graphics;
 import com.kasania.core.FileManager;
 import com.kasania.core.game.settings.GameSettings;
 import com.kasania.graphics.scenes.LevelSelectPanel;
+import com.kasania.graphics.scenes.MainMenuPanel;
 import com.kasania.graphics.scenes.PlayerModeSelectPanel;
 import com.kasania.graphics.scenes.ScenePanel;
-import com.kasania.graphics.scenes.MainMenuPanel;
 import com.kasania.graphics.scenes.ingame.GamePanel;
 import com.kasania.graphics.scenes.setting.SettingPanel;
 import com.kasania.graphics.scenes.wordmanager.WordManagePanel;
@@ -15,10 +15,6 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashMap;
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
 
 public class MainFrame {
 

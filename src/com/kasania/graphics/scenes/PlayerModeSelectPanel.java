@@ -1,11 +1,9 @@
 package com.kasania.graphics.scenes;
 
 import com.kasania.core.game.settings.GameSettings;
-import com.kasania.graphics.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.function.BiConsumer;
 
 public class PlayerModeSelectPanel extends ScenePanel {
 

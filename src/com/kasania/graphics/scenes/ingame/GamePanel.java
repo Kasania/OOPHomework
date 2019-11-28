@@ -8,7 +8,6 @@ import com.kasania.graphics.scenes.ScenePanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.function.BiConsumer;
 
 public class GamePanel extends ScenePanel {
 

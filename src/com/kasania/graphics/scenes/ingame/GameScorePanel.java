@@ -1,7 +1,6 @@
 package com.kasania.graphics.scenes.ingame;
 
 import com.kasania.core.game.settings.GameSettings;
-import com.kasania.graphics.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;

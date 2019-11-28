@@ -1,9 +1,9 @@
 package com.kasania.core.game.logic;
 
 import com.kasania.core.FileManager;
-import com.kasania.core.game.settings.GameSettings;
 import com.kasania.core.game.ScoreItem;
 import com.kasania.core.game.WordItem;
+import com.kasania.core.game.settings.GameSettings;
 import com.kasania.graphics.MainFrame;
 
 import java.util.*;
