@@ -109,9 +109,4 @@ public class GamePanel extends ScenePanel {
 
     }
 
-    @Override
-    public JPanel getContent() {
-        return contentPanel;
-    }
-
 }

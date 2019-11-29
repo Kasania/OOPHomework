@@ -98,16 +98,4 @@ public class MainMenuPanel extends ScenePanel{
         this.onExit = onExit;
     }
 
-    @Override
-    public ScenePanel prepareScene(int arg) {
-
-        return this;
-    }
-
-    @Override
-    public JPanel getContent() {
-        return contentPanel;
-    }
-
-
 }

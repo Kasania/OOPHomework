@@ -62,14 +62,4 @@ public class SettingPanel extends ScenePanel {
         reloadFrame = reload;
     }
 
-    @Override
-    public ScenePanel prepareScene(int arg) {
-
-        return this;
-    }
-
-    @Override
-    public JPanel getContent() {
-        return contentPanel;
-    }
 }
