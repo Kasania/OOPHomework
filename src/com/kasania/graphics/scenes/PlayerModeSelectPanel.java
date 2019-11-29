@@ -45,15 +45,6 @@ public class PlayerModeSelectPanel extends ScenePanel {
 
     }
 
-    @Override
-    public ScenePanel prepareScene(int arg) {
-        return this;
-    }
-
-    @Override
-    public JPanel getContent() {
-        return contentPanel;
-    }
 }
 
 

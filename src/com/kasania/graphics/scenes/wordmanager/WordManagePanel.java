@@ -134,8 +134,4 @@ public class WordManagePanel extends ScenePanel {
         return this;
     }
 
-    @Override
-    public JPanel getContent() {
-        return contentPanel;
-    }
 }
