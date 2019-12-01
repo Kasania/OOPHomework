@@ -105,7 +105,6 @@ public class MainFrame {
 
     private void onDestroy(){
         if(requestQuestionDialog("종료하시겠습니까?","종료")){
-            //TODO : Close Streams.
             mainFrame.dispose();
 
             saveDataFiles();

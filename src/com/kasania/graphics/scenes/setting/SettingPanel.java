@@ -1,5 +1,6 @@
 package com.kasania.graphics.scenes.setting;
 
+import com.kasania.core.game.settings.GameSettings;
 import com.kasania.graphics.MainFrame;
 import com.kasania.graphics.scenes.ScenePanel;
 
@@ -8,8 +9,6 @@ import java.awt.*;
 
 public class SettingPanel extends ScenePanel {
 
-    private JButton button1;
-    private JButton button2;
     //Todo : Frame rate
     private Runnable reloadFrame;
     private boolean needReload;
@@ -19,18 +18,24 @@ public class SettingPanel extends ScenePanel {
     }
 
     private void initializeComponents(){
+        Font font = new Font("Serif",Font.PLAIN,
+                GameSettings.getInstance().getSettingValue(GameSettings.Items.WINDOW_HEIGHT)/30);
 
         WindowMagnificationSettingPanel magnificationSettingPanel = new WindowMagnificationSettingPanel();
-        contentPanel = new JPanel(new GridLayout(5,2,5,5));
-        button1 = new JButton("Back");
+        FrameRateSettingPanel frameRateSettingPanel = new FrameRateSettingPanel();
+        contentPanel = new JPanel(new BorderLayout(15,15));
+
+        JPanel innerContentPanel = new JPanel(new GridLayout(4,2,5,5));
         needReload = false;
-        button1.addActionListener((e)->{
+
+        JButton backToMainMenuButton = new JButton("Back to Menu");
+        backToMainMenuButton.addActionListener((e)->{
             if(needReload){
                 if(MainFrame.requestQuestionDialog("Need Restart. ","Restart")){
                     reloadFrame.run();
                 }
                 else{
-                    MainFrame.requestConfirmDialog("Change will apply after Restart.","Change is Not Apply.");
+                    MainFrame.requestConfirmDialog("Change will apply after Restart.","Change is Not Applied.");
                 }
 
             }
@@ -38,24 +43,41 @@ public class SettingPanel extends ScenePanel {
             sceneChange.accept(Scene.MAIN_MENU,0);
         });
 
-        contentPanel.add(button1);
-        button1 = new JButton("apply");
-
-        button1.addActionListener((e)->{
+        JButton applyChangeButton = new JButton("Apply");
+        applyChangeButton.addActionListener((e)->{
             if(magnificationSettingPanel.applyChange()){
                 needReload = true;
             }
+
+            frameRateSettingPanel.applyChange();
+
         });
 
-        contentPanel.add(button1);
-        contentPanel.add(magnificationSettingPanel.getContents());
-        fillBlank(10-contentPanel.getComponentCount());
+        backToMainMenuButton.setFont(font);
+
+        applyChangeButton.setFont(font);
+
+        innerContentPanel.add(magnificationSettingPanel.getContents());
+        innerContentPanel.add(frameRateSettingPanel.getContents());
+
+        innerContentPanel.add(applyChangeButton);
+        innerContentPanel.add(backToMainMenuButton);
+
+        fillBlank(innerContentPanel,8-innerContentPanel.getComponentCount());
+
+        contentPanel.add(innerContentPanel, BorderLayout.CENTER);
+        contentPanel.add(new JPanel(), BorderLayout.EAST);
+        contentPanel.add(new JPanel(), BorderLayout.NORTH);
+        contentPanel.add(new JPanel(), BorderLayout.SOUTH);
+        contentPanel.add(new JPanel(), BorderLayout.WEST);
+
+
     }
 
-    private void fillBlank(int blankCount){
+    private void fillBlank(JPanel panel , int blankCount){
 
         for(int i = 0; i<blankCount;++i)
-            contentPanel.add(new JPanel());
+            panel.add(new JPanel());
     }
 
     public void addReloadFrame(Runnable reload){
