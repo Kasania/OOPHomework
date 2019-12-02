@@ -83,7 +83,7 @@ public class WordManagePanel extends ScenePanel {
 
         wordListScroll.getViewport().setView(wordListWrapperPanel);
 
-
+        contentPanel.setBorder(BorderFactory.createLineBorder(contentPanel.getBackground(),10));
 
     }
 
