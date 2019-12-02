@@ -13,7 +13,6 @@ public class PlayerModeSelectPanel extends ScenePanel {
 
     public PlayerModeSelectPanel(){
         contentPanel = new JPanel(new BorderLayout(20,20));
-        JPanel buttonWrapperPanel = new JPanel(new BorderLayout(15,15));
         JPanel modeSelectButtonWrapperPanel = new JPanel(new GridLayout(1,2,15,15));
 
         Font modeSelectFont = new Font("Serif",Font.ITALIC, GameSettings.getInstance().getSettingValue(GameSettings.Items.WINDOW_WIDTH)/10);
@@ -29,18 +28,13 @@ public class PlayerModeSelectPanel extends ScenePanel {
         modeSelectButtonWrapperPanel.add(singleModeButton);
         modeSelectButtonWrapperPanel.add(multiModeButton);
 
-        buttonWrapperPanel.add(backToStartButton,BorderLayout.WEST);
-        buttonWrapperPanel.add(modeSelectButtonWrapperPanel,BorderLayout.CENTER);
-        contentPanel.add(buttonWrapperPanel,BorderLayout.CENTER);
+        contentPanel.add(backToStartButton,BorderLayout.WEST);
+        contentPanel.add(modeSelectButtonWrapperPanel,BorderLayout.CENTER);
 
-        contentPanel.add(new JLabel(),BorderLayout.WEST);
-        contentPanel.add(new JLabel(),BorderLayout.EAST);
-        contentPanel.add(new JLabel(),BorderLayout.SOUTH);
-        contentPanel.add(new JLabel(),BorderLayout.NORTH);
-
+        contentPanel.setBorder(BorderFactory.createLineBorder(contentPanel.getBackground(),25));
 
         backToStartButton.addActionListener((e)-> sceneChange.accept(Scene.MAIN_MENU,0));
-        singleModeButton.addActionListener((e)-> sceneChange.accept(Scene.LEVEL_SELECT,0));
+        singleModeButton.addActionListener((e)-> sceneChange.accept(Scene.WORD_TYPING_LEVEL_SELECT,0));
         multiModeButton.addActionListener((e)-> sceneChange.accept(Scene.SETTING,0));
 
     }

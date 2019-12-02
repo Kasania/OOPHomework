@@ -28,6 +28,8 @@ public class FrameRateSettingPanel {
                 GameSettings.getInstance().getSettingValue(GameSettings.Items.WINDOW_HEIGHT)/35);
         frameRateLabel.setFont(font);
 
+
+
         frameRateSlider = new JSlider(JSlider.HORIZONTAL,30,240, currentFrameRate);
         frameRateSlider.setMajorTickSpacing(15);
         frameRateSlider.setMinorTickSpacing(5);
@@ -39,6 +41,8 @@ public class FrameRateSettingPanel {
             frameRateLabel.setText("Frame rate : "+ currentFrameRate);
         });
 
+        frameRateLabel.setBorder(BorderFactory.createLineBorder(frameRateLabel.getBackground(),10));
+        frameRateSlider.setBorder(BorderFactory.createLineBorder(frameRateSlider.getBackground(),10));
 
         content.add(frameRateSlider,BorderLayout.CENTER);
         content.add(frameRateLabel,BorderLayout.EAST);

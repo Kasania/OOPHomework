@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class SettingPanel extends ScenePanel {
 
-    //Todo : Frame rate
+    //TODO : Sound(BGM, Effect)
     private Runnable reloadFrame;
     private boolean needReload;
 
@@ -25,7 +25,7 @@ public class SettingPanel extends ScenePanel {
         FrameRateSettingPanel frameRateSettingPanel = new FrameRateSettingPanel();
         contentPanel = new JPanel(new BorderLayout(15,15));
 
-        JPanel innerContentPanel = new JPanel(new GridLayout(4,2,5,5));
+        JPanel innerContentPanel = new JPanel(new GridLayout(4,2,10,10));
         needReload = false;
 
         JButton backToMainMenuButton = new JButton("Back to Menu");
@@ -59,17 +59,20 @@ public class SettingPanel extends ScenePanel {
 
         innerContentPanel.add(magnificationSettingPanel.getContents());
         innerContentPanel.add(frameRateSettingPanel.getContents());
+        innerContentPanel.setBorder(BorderFactory.createLineBorder(innerContentPanel.getBackground(),5));
 
-        innerContentPanel.add(applyChangeButton);
-        innerContentPanel.add(backToMainMenuButton);
+        JPanel buttonWrapper = new JPanel(new GridLayout(1,2,5,5));
+
+        buttonWrapper.setBorder(BorderFactory.createLineBorder(buttonWrapper.getBackground(),5));
+        buttonWrapper.add(applyChangeButton);
+        buttonWrapper.add(backToMainMenuButton);
 
         fillBlank(innerContentPanel,8-innerContentPanel.getComponentCount());
 
+        contentPanel.setBorder(BorderFactory.createLineBorder(contentPanel.getBackground(),10));
+
         contentPanel.add(innerContentPanel, BorderLayout.CENTER);
-        contentPanel.add(new JPanel(), BorderLayout.EAST);
-        contentPanel.add(new JPanel(), BorderLayout.NORTH);
-        contentPanel.add(new JPanel(), BorderLayout.SOUTH);
-        contentPanel.add(new JPanel(), BorderLayout.WEST);
+        contentPanel.add(buttonWrapper, BorderLayout.SOUTH);
 
 
     }

@@ -8,7 +8,13 @@ import java.util.function.BiConsumer;
 public abstract class ScenePanel {
 
     public enum Scene {
-        MAIN_MENU, PLAYER_MODE_SELECT, LEVEL_SELECT, GAME, WORD_MANAGER, SETTING,
+        MAIN_MENU, WORD_MANAGER, SETTING,
+        PLAYER_MODE_SELECT,
+        SINGLE_GAME_MODE_SELECT,
+        MULTI_GAME_MODE_SELECT,
+        WORD_TYPING_LEVEL_SELECT, LYRICS_TYPING_STAGE_SELECT,
+        WORD_TYPING_GAME, LYRICS_TYPING_GAME,
+
     }
 
     protected JPanel contentPanel;

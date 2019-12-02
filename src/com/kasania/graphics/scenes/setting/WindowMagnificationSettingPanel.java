@@ -22,6 +22,8 @@ public class WindowMagnificationSettingPanel {
 
         JPanel screenSizeWrapper = new JPanel(new GridLayout(3,1));
 
+
+
         JLabel magnificationLabel = new JLabel("Size : "+currentMagnification + "%");
 
         JLabel widthLabel = new JLabel("Width : "+ 16 * currentMagnification);
@@ -46,6 +48,8 @@ public class WindowMagnificationSettingPanel {
             heightLabel.setText("Height : " + 9 * currentMagnification);
         });
 
+        magnificationSlider.setBorder(BorderFactory.createLineBorder(magnificationSlider.getBackground(),5));
+        screenSizeWrapper.setBorder(BorderFactory.createLineBorder(screenSizeWrapper.getBackground(),10));
         screenSizeWrapper.add(magnificationLabel);
         screenSizeWrapper.add(widthLabel);
         screenSizeWrapper.add(heightLabel);
