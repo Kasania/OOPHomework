@@ -1,7 +1,5 @@
 package com.kasania.graphics.scenes;
 
-import jdk.jshell.spi.ExecutionControl;
-
 import javax.swing.*;
 import java.util.function.BiConsumer;
 

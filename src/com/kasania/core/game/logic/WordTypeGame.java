@@ -180,7 +180,6 @@ public class WordTypeGame {
         executorService.shutdown();
     }
 
-
     private void decreaseLife(){
         currentLife -= 1;
         updateLife.accept(maxLife,currentLife);
