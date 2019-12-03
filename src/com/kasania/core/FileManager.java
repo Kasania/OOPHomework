@@ -15,7 +15,7 @@ import java.util.concurrent.FutureTask;
 
 public class FileManager {
 
-    private static String wordFilePath = "res/words";
+    private static String wordFilePath = "res/words.txt";
     private static String scoreFilePath = "res/score";
     private static String settingFilePath = "res/setting";
 

@@ -22,10 +22,12 @@ public class WindowMagnificationSettingPanel {
 
         JPanel screenSizeWrapper = new JPanel(new GridLayout(3,1));
 
+
+
         JLabel magnificationLabel = new JLabel("Size : "+currentMagnification + "%");
 
-        JLabel widthLabel = new JLabel("WIDTH : "+ 16 * currentMagnification);
-        JLabel heightLabel = new JLabel("HEIGHT : " + 9 * currentMagnification);
+        JLabel widthLabel = new JLabel("Width : "+ 16 * currentMagnification);
+        JLabel heightLabel = new JLabel("Height : " + 9 * currentMagnification);
 
         Font font = new Font("Serif",Font.PLAIN,
                 GameSettings.getInstance().getSettingValue(GameSettings.Items.WINDOW_HEIGHT)/35);
@@ -42,10 +44,12 @@ public class WindowMagnificationSettingPanel {
             valueChanged = true;
             currentMagnification = magnificationSlider.getValue();
             magnificationLabel.setText("Size : "+currentMagnification + "%");
-            widthLabel.setText("WIDTH : " + 16 * currentMagnification);
-            heightLabel.setText("HEIGHT : " + 9 * currentMagnification);
+            widthLabel.setText("Width : " + 16 * currentMagnification);
+            heightLabel.setText("Height : " + 9 * currentMagnification);
         });
 
+        magnificationSlider.setBorder(BorderFactory.createLineBorder(magnificationSlider.getBackground(),5));
+        screenSizeWrapper.setBorder(BorderFactory.createLineBorder(screenSizeWrapper.getBackground(),10));
         screenSizeWrapper.add(magnificationLabel);
         screenSizeWrapper.add(widthLabel);
         screenSizeWrapper.add(heightLabel);

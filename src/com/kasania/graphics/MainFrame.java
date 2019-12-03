@@ -49,7 +49,7 @@ public class MainFrame {
 
         LevelSelectPanel levelSelectPanel = new LevelSelectPanel();
         levelSelectPanel.addSceneChanger(this::changeScene);
-        contents.put(ScenePanel.Scene.LEVEL_SELECT,levelSelectPanel);
+        contents.put(ScenePanel.Scene.WORD_TYPING_LEVEL_SELECT,levelSelectPanel);
 
         SettingPanel settingPanel = new SettingPanel();
         settingPanel.addSceneChanger(this::changeScene);
@@ -62,7 +62,7 @@ public class MainFrame {
 
         GamePanel gamePanel = new GamePanel();
         gamePanel.addSceneChanger(this::changeScene);
-        contents.put(ScenePanel.Scene.GAME,gamePanel);
+        contents.put(ScenePanel.Scene.WORD_TYPING_GAME,gamePanel);
 
     }
 
@@ -105,7 +105,6 @@ public class MainFrame {
 
     private void onDestroy(){
         if(requestQuestionDialog("종료하시겠습니까?","종료")){
-            //TODO : Close Streams.
             mainFrame.dispose();
 
             saveDataFiles();

@@ -83,7 +83,7 @@ public class WordManagePanel extends ScenePanel {
 
         wordListScroll.getViewport().setView(wordListWrapperPanel);
 
-
+        contentPanel.setBorder(BorderFactory.createLineBorder(contentPanel.getBackground(),10));
 
     }
 
@@ -123,7 +123,6 @@ public class WordManagePanel extends ScenePanel {
     private void addWordElementPanelToView(WordElementPanel wordElementPanel){
         wordElementPanelList.add(wordElementPanel);
         wordListWrapperPanel.add(wordElementPanel.getContent(),0);
-        wordListWrapperPanel.add(Box.createRigidArea(new Dimension((int) (GameSettings.getInstance().getSettingValue(GameSettings.Items.WINDOW_WIDTH)*0.9),4)),0);
     }
 
     @Override

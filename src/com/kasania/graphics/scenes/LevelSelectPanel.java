@@ -56,7 +56,7 @@ public class LevelSelectPanel extends ScenePanel{
         for(int i = 0; i< levelButton.length; ++i){
             int level = i;
             levelButton[i].addActionListener((e)->{
-                sceneChange.accept(Scene.GAME,level);
+                sceneChange.accept(Scene.WORD_TYPING_GAME,level);
             });
         }
 

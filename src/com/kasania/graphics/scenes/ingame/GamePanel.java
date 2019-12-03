@@ -41,6 +41,8 @@ public class GamePanel extends ScenePanel {
         contentPanel.setLayout(new BorderLayout(5,5));
         answerInput.addActionListener(this::inputAnswer);
 
+        contentPanel.setBorder(BorderFactory.createLineBorder(contentPanel.getBackground(),3));
+
         backToStartButton = new JButton("Give Up");
         backToStartButton.addActionListener((e)->{
             gameInstance.stopGame();

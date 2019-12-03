@@ -115,7 +115,7 @@ public class WordTypeGame {
     }
 
     private void calculateDifficulty(){
-        long secondToMicro = 1_000_000;
+        long secondToMicro = TimeUnit.SECONDS.toMicros(1);
         long framePerSecond = GameSettings.getInstance().getSettingValue(GameSettings.Items.FRAME_RATE);
 
         wordGenDelay = (long)(2.0 * secondToMicro / Math.sqrt(difficulty + 1));

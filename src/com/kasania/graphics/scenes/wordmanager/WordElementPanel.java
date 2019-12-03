@@ -16,14 +16,16 @@ public class WordElementPanel {
         int panelWidth = (int) (GameSettings.getInstance().getSettingValue(GameSettings.Items.WINDOW_WIDTH)*0.8);
         int panelHeight = GameSettings.getInstance().getSettingValue(GameSettings.Items.WINDOW_WIDTH)/18;
 
+        JPanel innerContent = new JPanel(new BorderLayout(10,10));
+
         string = str;
-        content = new JPanel(new BorderLayout(10,10));
+        content = new JPanel();
 
-        content.setPreferredSize(new Dimension(panelWidth,panelHeight));
-        content.setMaximumSize(new Dimension(panelWidth,panelHeight));
-        content.setMinimumSize(new Dimension(panelWidth,panelHeight));
+        innerContent.setPreferredSize(new Dimension(panelWidth,panelHeight));
+        innerContent.setMaximumSize(new Dimension(panelWidth,panelHeight));
+        innerContent.setMinimumSize(new Dimension(panelWidth,panelHeight));
 
-        content.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+        innerContent.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
 
         JLabel wordLabel = new JLabel(str);
         wordLabel.setFont(new Font("Serif", Font.PLAIN, wordLabelFontSize));
@@ -33,8 +35,11 @@ public class WordElementPanel {
         removeButton.setFont(new Font("Serif",Font.PLAIN,wordLabelFontSize));
         removeButton.addActionListener((e)->onRemove.accept(string));
 
-        content.add(wordLabel,BorderLayout.CENTER);
-        content.add(removeButton, BorderLayout.EAST);
+        innerContent.add(wordLabel,BorderLayout.CENTER);
+        innerContent.add(removeButton, BorderLayout.EAST);
+
+        content.setBorder(BorderFactory.createLineBorder(content.getBackground(),1));
+        content.add(innerContent);
 
     }
 
