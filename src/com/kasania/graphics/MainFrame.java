@@ -14,7 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.HashMap;
+import java.util.EnumMap;
 
 public class MainFrame {
 
@@ -23,7 +23,7 @@ public class MainFrame {
     private static final int SCREEN_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
     private static final int SCREEN_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
 
-    private HashMap<ScenePanel.Scene,ScenePanel> contents;
+    private EnumMap<ScenePanel.Scene,ScenePanel> contents;
 
 
     public MainFrame(){
@@ -36,7 +36,7 @@ public class MainFrame {
     private void initializeComponents(){
         mainFrame = new JFrame();
 
-        contents = new HashMap<>();
+        contents = new EnumMap<>(ScenePanel.Scene.class);
 
         MainMenuPanel mainMenuPanel = new MainMenuPanel();
         mainMenuPanel.addSceneChanger(this::changeScene);
