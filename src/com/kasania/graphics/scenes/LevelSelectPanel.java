@@ -6,7 +6,7 @@ import com.kasania.core.game.settings.GameSettings;
 import javax.swing.*;
 import java.awt.*;
 
-public class LevelSelectPanel extends ScenePanel{
+public class LevelSelectPanel extends AbstractScenePanel {
 
     private JPanel outerButtonWrapperPanel;
     private JPanel innerButtonWrapperPanel;

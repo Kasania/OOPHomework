@@ -3,7 +3,7 @@ package com.kasania.graphics.scenes;
 import javax.swing.*;
 import java.util.function.BiConsumer;
 
-public abstract class ScenePanel {
+public abstract class AbstractScenePanel {
 
     public enum Scene {
         MAIN_MENU, WORD_MANAGER, SETTING,
@@ -21,7 +21,7 @@ public abstract class ScenePanel {
     public void addSceneChanger(BiConsumer<Scene, Integer> sceneChanger){
         this.sceneChange = sceneChanger;
     }
-    public ScenePanel prepareScene(int arg){
+    public AbstractScenePanel prepareScene(int arg){
         return this;
     }
     public JPanel getContent(){

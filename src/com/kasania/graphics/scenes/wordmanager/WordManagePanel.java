@@ -2,13 +2,13 @@ package com.kasania.graphics.scenes.wordmanager;
 
 import com.kasania.core.FileManager;
 import com.kasania.core.game.settings.GameSettings;
-import com.kasania.graphics.scenes.ScenePanel;
+import com.kasania.graphics.scenes.AbstractScenePanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class WordManagePanel extends ScenePanel {
+public class WordManagePanel extends AbstractScenePanel {
 
     private JPanel wordAdderPanel;
     private JTextField wordAdderTextField;
@@ -126,7 +126,7 @@ public class WordManagePanel extends ScenePanel {
     }
 
     @Override
-    public ScenePanel prepareScene(int arg) {
+    public AbstractScenePanel prepareScene(int arg) {
 
         wordList = FileManager.getInstance().getWordList();
 

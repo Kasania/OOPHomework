@@ -5,7 +5,7 @@ import com.kasania.core.game.settings.GameSettings;
 import com.kasania.graphics.scenes.LevelSelectPanel;
 import com.kasania.graphics.scenes.MainMenuPanel;
 import com.kasania.graphics.scenes.PlayerModeSelectPanel;
-import com.kasania.graphics.scenes.ScenePanel;
+import com.kasania.graphics.scenes.AbstractScenePanel;
 import com.kasania.graphics.scenes.ingame.GamePanel;
 import com.kasania.graphics.scenes.setting.SettingPanel;
 import com.kasania.graphics.scenes.wordmanager.WordManagePanel;
@@ -23,7 +23,7 @@ public class MainFrame {
     private static final int SCREEN_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
     private static final int SCREEN_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
 
-    private EnumMap<ScenePanel.Scene,ScenePanel> contents;
+    private EnumMap<AbstractScenePanel.Scene, AbstractScenePanel> contents;
 
 
     public MainFrame(){
@@ -36,40 +36,40 @@ public class MainFrame {
     private void initializeComponents(){
         mainFrame = new JFrame();
 
-        contents = new EnumMap<>(ScenePanel.Scene.class);
+        contents = new EnumMap<>(AbstractScenePanel.Scene.class);
 
         MainMenuPanel mainMenuPanel = new MainMenuPanel();
         mainMenuPanel.addSceneChanger(this::changeScene);
         mainMenuPanel.onExit(this::onDestroy);
-        contents.put(ScenePanel.Scene.MAIN_MENU, mainMenuPanel);
+        contents.put(AbstractScenePanel.Scene.MAIN_MENU, mainMenuPanel);
 
         PlayerModeSelectPanel playerModeSelectPanel = new PlayerModeSelectPanel();
         playerModeSelectPanel.addSceneChanger(this::changeScene);
-        contents.put(ScenePanel.Scene.PLAYER_MODE_SELECT,playerModeSelectPanel);
+        contents.put(AbstractScenePanel.Scene.PLAYER_MODE_SELECT,playerModeSelectPanel);
 
         LevelSelectPanel levelSelectPanel = new LevelSelectPanel();
         levelSelectPanel.addSceneChanger(this::changeScene);
-        contents.put(ScenePanel.Scene.WORD_TYPING_LEVEL_SELECT,levelSelectPanel);
+        contents.put(AbstractScenePanel.Scene.WORD_TYPING_LEVEL_SELECT,levelSelectPanel);
 
         SettingPanel settingPanel = new SettingPanel();
         settingPanel.addSceneChanger(this::changeScene);
         settingPanel.addReloadFrame(this::restart);
-        contents.put(ScenePanel.Scene.SETTING,settingPanel);
+        contents.put(AbstractScenePanel.Scene.SETTING,settingPanel);
 
         WordManagePanel wordInputPanel = new WordManagePanel();
         wordInputPanel.addSceneChanger(this::changeScene);
-        contents.put(ScenePanel.Scene.WORD_MANAGER,wordInputPanel);
+        contents.put(AbstractScenePanel.Scene.WORD_MANAGER,wordInputPanel);
 
         GamePanel gamePanel = new GamePanel();
         gamePanel.addSceneChanger(this::changeScene);
-        contents.put(ScenePanel.Scene.WORD_TYPING_GAME,gamePanel);
+        contents.put(AbstractScenePanel.Scene.WORD_TYPING_GAME,gamePanel);
 
     }
 
-    private void changeScene(ScenePanel.Scene scene, int arg){
+    private void changeScene(AbstractScenePanel.Scene scene, int arg){
 
         mainFrame.getContentPane().removeAll();
-        ScenePanel next = contents.get(scene).prepareScene(arg);
+        AbstractScenePanel next = contents.get(scene).prepareScene(arg);
         JPanel nextPanel = next.getContent();
         mainFrame.getContentPane().add(nextPanel);
         mainFrame.getContentPane().revalidate();
@@ -100,7 +100,7 @@ public class MainFrame {
         mainFrame.setResizable(false);
         mainFrame.setVisible(true);
 
-        changeScene(ScenePanel.Scene.MAIN_MENU,0);
+        changeScene(AbstractScenePanel.Scene.MAIN_MENU,0);
     }
 
     private void onDestroy(){

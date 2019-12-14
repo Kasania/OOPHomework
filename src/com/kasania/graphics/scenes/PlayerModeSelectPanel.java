@@ -5,7 +5,7 @@ import com.kasania.core.game.settings.GameSettings;
 import javax.swing.*;
 import java.awt.*;
 
-public class PlayerModeSelectPanel extends ScenePanel {
+public class PlayerModeSelectPanel extends AbstractScenePanel {
 
     private JButton singleModeButton;
     private JButton multiModeButton;

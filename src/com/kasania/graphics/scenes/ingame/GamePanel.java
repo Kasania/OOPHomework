@@ -3,13 +3,13 @@ package com.kasania.graphics.scenes.ingame;
 import com.kasania.core.game.logic.WordTypeGame;
 import com.kasania.core.game.settings.GameSettings;
 import com.kasania.graphics.MainFrame;
-import com.kasania.graphics.scenes.ScenePanel;
+import com.kasania.graphics.scenes.AbstractScenePanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class GamePanel extends ScenePanel {
+public class GamePanel extends AbstractScenePanel {
 
     private JButton backToStartButton;
 
@@ -80,7 +80,7 @@ public class GamePanel extends ScenePanel {
     }
 
     @Override
-    public ScenePanel prepareScene(int difficulty) {
+    public AbstractScenePanel prepareScene(int difficulty) {
 
         gameInstance = WordTypeGame.newGame(difficulty);
 

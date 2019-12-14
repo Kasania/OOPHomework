@@ -5,7 +5,7 @@ import com.kasania.core.game.settings.GameSettings;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainMenuPanel extends ScenePanel{
+public class MainMenuPanel extends AbstractScenePanel {
 
     private JPanel outerButtonWrapperPanel;
     private JPanel innerButtonWrapperPanel;

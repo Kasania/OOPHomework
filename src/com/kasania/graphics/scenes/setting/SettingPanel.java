@@ -2,12 +2,12 @@ package com.kasania.graphics.scenes.setting;
 
 import com.kasania.core.game.settings.GameSettings;
 import com.kasania.graphics.MainFrame;
-import com.kasania.graphics.scenes.ScenePanel;
+import com.kasania.graphics.scenes.AbstractScenePanel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class SettingPanel extends ScenePanel {
+public class SettingPanel extends AbstractScenePanel {
 
     //TODO : Sound(BGM, Effect)
     private Runnable reloadFrame;
